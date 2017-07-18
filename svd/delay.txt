@@ -1,0 +1,19 @@
+Delay in AIF
+
+For the delay correction of R, I found that by zero padding the
+signals, Ca and C, we could get the right R even AIF if delay by t_d.
+However the computed R will be circularly delayed. For instance, if
+t_d = 1 sec, R should be
+
+R = [1 0.5 0 0]
+
+when there is no delay.
+
+But when there is delay, R_d will be
+
+R_d = [0.5 0 0 1]
+
+This is the result output by the MATLAB code bcsvd_long.m
+
+In that case, we should circularly shift R_d right by 1 sec to make it
+R_shifted = [1 0.5 0 0].
