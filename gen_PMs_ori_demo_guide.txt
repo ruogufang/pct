@@ -1,0 +1,31 @@
+gen_PMs_ori_demo.m guide: This document follows the code gen_PMs_ori_demo_v3 that is available in this PCT toolbox. 
+
+Requirements:
+- Temporal CTP data
+- MATLAB Image Processing Toolbox
+- MATLAB Signal Processing Toolbox
+
+Setting paths:
+1. Change the following paths as such - 
+- p_ctp: This path refers to your location for the overal PCT toolbox. This should only have to be changed on first code use.
+- p_pma: This path refers to your location for the Display_PMA_Colormaps/data directory. Also change on first code use.
+- path_data: This path refers to your location for your overarching patient file directory. Only change this if you change to a new data source.
+
+2. Unique patient specifiers - 
+- patient_id: Change each time you work on a different patient. This code is currently set such that the data folder contains subdirectories for each patient that are labeled by a deidentified patient ID.
+- slice: Change every time you change spatial slice number. The total number of slices may change based on your data source.
+
+3. Save paths - 
+- path_save: currently setup such that it saves a new directory to your current working directory of format "./[patient_id]/perfusion_maps". If you are in the folder specified as "path_data" it would save a folder called "perfusion_maps" to each specific, already existing, patient folder.
+- only change save paths if you are unhappy with the naming conventions
+
+Load CTP vol:
+1. exact dimensions in comment may change by data source
+2. do not have to change this part if your data is of patientID_CTP.mat format with variable V of dimensions X x Y x Z x T
+
+PCT Parameters: 
+1. PRE and POST change by first generating the code as is. Examine what slice number (X axis) entails the start and finish of the AIF VOF curves. Restart the code with these values as PRE (curve start) and POST (curve stop)
+2. other parameters should only be changed based on basic clinical knowledge
+
+Running code:
+1. select AIF and VOF sequentially as the figure prompt appears on screen
